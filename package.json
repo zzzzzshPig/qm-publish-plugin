@@ -1,0 +1,42 @@
+{
+    "name": "qm-rollup-template",
+    "version": "1.0.2",
+    "main": "./dist/index.esm.js",
+    "types": "./dist/main.d.ts",
+    "homepage": "https://github.com/zzzzzshPig/qm-rollup-template",
+    "bugs": {
+        "url": "https://github.com/zzzzzshPig/qm-rollup-template/issues",
+        "email": "zzzzzzshpig@163.com"
+    },
+    "keywords": [
+        "qm-rollup-template"
+    ],
+    "module": "dist/index.esm.js",
+    "author": "zhoushaohui",
+    "license": "MIT",
+    "scripts": {
+        "dev": "rollup -c --watch",
+        "build": "node ./build.js"
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^11.2.0",
+        "@typescript-eslint/eslint-plugin": "^4.16.1",
+        "@typescript-eslint/parser": "^4.16.1",
+        "eslint": "^7.21.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.3.1",
+        "prompts": "^2.4.1",
+        "rollup": "^2.40.0",
+        "rollup-plugin-polyfill-node": "^0.6.1",
+        "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-typescript2": "^0.30.0",
+        "shelljs": "^0.8.4",
+        "tslib": "^2.1.0",
+        "typescript": "^4.2.2"
+    },
+    "files": [
+        "dist"
+    ]
+}
