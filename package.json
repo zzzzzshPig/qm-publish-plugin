@@ -20,6 +20,8 @@
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^11.2.0",
+        "@types/prompts": "^2.0.10",
+        "@types/shelljs": "^0.8.8",
         "@typescript-eslint/eslint-plugin": "^4.16.1",
         "@typescript-eslint/parser": "^4.16.1",
         "eslint": "^7.21.0",
