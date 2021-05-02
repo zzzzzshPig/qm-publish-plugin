@@ -1,13 +1,16 @@
 const prompts = require('prompts')
 const shell = require('shelljs')
 const fs = require('fs')
-const pack = require('./package.json')
-
-let nextVersion = pack.version.split('.')
-nextVersion[nextVersion.length - 1] = Number(nextVersion[nextVersion.length - 1]) + 1
-nextVersion = nextVersion.join('.')
 
 async function init () {
+    const packPath = '../../package.json'
+    const pack = require(packPath)
+
+    // 获取最新版本号
+    let nextVersion = pack.version.split('.')
+    nextVersion[nextVersion.length - 1] = Number(nextVersion[nextVersion.length - 1]) + 1
+    nextVersion = nextVersion.join('.')
+
     const _version = [{
         type: 'text',
         name: 'version',
@@ -36,7 +39,7 @@ async function init () {
     const { commit, push } = await prompts(_git)
 
     // 修改npm version
-    fs.writeFileSync('./package.json', JSON.stringify({
+    fs.writeFileSync(packPath, JSON.stringify({
         ...pack,
         version
     }, null, 4))
