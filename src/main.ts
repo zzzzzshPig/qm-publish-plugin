@@ -19,8 +19,6 @@ async function init () {
     }]
 
     const { version } = await prompts(_version)
-    shell.echo('rollup building......')
-    shell.exec('rollup -c')
 
     const _git = [
         {
@@ -37,6 +35,9 @@ async function init () {
     ]
 
     const { commit, push } = await prompts(_git)
+
+    shell.echo('rollup building......')
+    shell.exec('rollup -c')
 
     // 修改npm version
     fs.writeFileSync(packPath, JSON.stringify({
