@@ -3,20 +3,19 @@
     "version": "1.0.2",
     "main": "./dist/index.esm.js",
     "types": "./dist/main.d.ts",
-    "homepage": "https://github.com/zzzzzshPig/qm-rollup-template",
+    "homepage": "https://github.com/zzzzzshPig/qm-publish-plugin",
     "bugs": {
-        "url": "https://github.com/zzzzzshPig/qm-rollup-template/issues",
+        "url": "https://github.com/zzzzzshPig/qm-publish-plugin/issues",
         "email": "zzzzzzshpig@163.com"
     },
     "keywords": [
-        "qm-rollup-template"
+        "qm-publish-plugin"
     ],
     "module": "dist/index.esm.js",
     "author": "zhoushaohui",
     "license": "MIT",
     "scripts": {
-        "dev": "rollup -c --watch",
-        "build": "node ./build.js"
+        "dev": "rollup -c --watch"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^11.2.0",
