@@ -3,8 +3,7 @@ const shell = require('shelljs')
 const fs = require('fs')
 
 async function init () {
-    const packPath = '../../package.json'
-    const pack = require(packPath)
+    const pack = require('../../package.json')
 
     // 获取最新版本号
     let nextVersion = pack.version.split('.')
@@ -39,11 +38,15 @@ async function init () {
     shell.echo('rollup building......')
     shell.exec('rollup -c')
 
+    shell.echo('write package.json start')
+
     // 修改npm version
-    fs.writeFileSync(packPath, JSON.stringify({
+    fs.writeFileSync('./package.json', JSON.stringify({
         ...pack,
         version
     }, null, 4))
+
+    shell.echo('write package.json success')
 
     shell.exec(`git commit -a -m "${commit}"`)
     shell.exec(`git tag -a ${version} -m "${version}"`)
