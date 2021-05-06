@@ -51,7 +51,7 @@ async function init () {
     shell.echo('write README.md start')
 
     // 尝试修改README中的版本号
-    let readMe = fs.readFileSync('./README.md') as string
+    let readMe = fs.readFileSync('./README.md').toString()
     readMe = readMe.replace(/#\d+\.\d+\.\d+/, `#${version}`)
     fs.writeFileSync('./README.md', readMe)
 
