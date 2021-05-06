@@ -48,6 +48,15 @@ async function init () {
 
     shell.echo('write package.json success')
 
+    shell.echo('write README.md start')
+
+    // 尝试修改README中的版本号
+    let readMe = fs.readFileSync('./README.md') as string
+    readMe = readMe.replace(/#\d+\.\d+\.\d+/, `#${version}`)
+    fs.writeFileSync('./README.md', readMe)
+
+    shell.echo('write README.md success')
+
     shell.exec(`git commit -a -m "${commit}"`)
     shell.exec(`git tag -a ${version} -m "${version}"`)
 
