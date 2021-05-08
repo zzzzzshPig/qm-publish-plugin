@@ -1,6 +1,11 @@
+import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import fs from 'fs'
+
+// shelljs/shell.js存在require动态包，插件无法导入只能替换url，所以在这里覆盖掉shell.js的实现
+fs.writeFileSync('./node_modules/shelljs/shell.js', fs.readFileSync('./src/shell.js'))
 
 function baseConfig () {
     return {
@@ -11,6 +16,7 @@ function baseConfig () {
             exports: 'named'
         },
         plugins: [
+            commonjs(),
             terser(),
             typescript()
         ],
@@ -18,13 +24,13 @@ function baseConfig () {
     }
 }
 
-const esm = baseConfig()
-esm.output.format = 'esm'
-esm.output.file = 'dist/index.js'
-esm.plugins.push(
+const cjs = baseConfig()
+cjs.output.format = 'cjs'
+cjs.output.file = 'dist/index.js'
+cjs.plugins.push(
     nodeResolve()
 )
 
 export default [
-    esm
+    cjs
 ]

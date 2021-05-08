@@ -1,5 +1,5 @@
-const prompts = require('prompts')
-const shell = require('shelljs')
+import prompts, { PromptObject } from 'prompts'
+import shell from 'shelljs'
 const fs = require('fs')
 
 async function init () {
@@ -10,7 +10,7 @@ async function init () {
     nextVersion[nextVersion.length - 1] = Number(nextVersion[nextVersion.length - 1]) + 1
     nextVersion = nextVersion.join('.')
 
-    const _version = [{
+    const _version: PromptObject[] = [{
         type: 'text',
         name: 'version',
         message: `当前版本${pack.version}`,
@@ -19,7 +19,7 @@ async function init () {
 
     const { version } = await prompts(_version)
 
-    const _git = [
+    const _git: PromptObject[] = [
         {
             type: 'text',
             name: 'commit',
