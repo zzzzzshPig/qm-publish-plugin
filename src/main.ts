@@ -1,8 +1,8 @@
 import prompts, { PromptObject } from 'prompts'
-import shell from 'shelljs'
 const fs = require('fs')
 
 async function init () {
+    const shell = require('./shelljs')
     const pack = require('../../package.json')
 
     // 获取最新版本号

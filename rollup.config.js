@@ -5,7 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import copydir from 'copy-dir'
 
 // 需要依赖src目录，copy之
-copydir.sync('./node_modules/shelljs/src', './dist/src')
+copydir.sync('./node_modules/shelljs', './dist/shelljs')
 
 function baseConfig () {
     return {
